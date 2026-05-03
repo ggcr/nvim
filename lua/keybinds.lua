@@ -1,23 +1,31 @@
--- Oil
-vim.keymap.set("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })
+-- Help under cursor
+vim.keymap.set("n", "<leader>h.", "<cmd>help!<CR>", { desc = "Help under cursor" })
 
--- Snacks.nvim picker
-vim.keymap.set("n", "<leader><space>", "<cmd>FzfLua buffers<CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "Find files" })
-vim.keymap.set("n", "<leader>fr", "<cmd>FzfLua oldfiles<CR>", { desc = "Recent" })
-
--- Emacs save
+-- Save (emacs)
 vim.keymap.set("n", "<C-x>s", "<cmd>write<CR>", { silent = true, desc = "Save file" })
 vim.keymap.set("i", "<C-x>s", "<cmd>write<CR>", { silent = true, desc = "Save file" })
 vim.keymap.set("n", "<C-x><C-s>", "<cmd>write<CR>", { silent = true, desc = "Save file" })
 vim.keymap.set("i", "<C-x><C-s>", "<cmd>write<CR>", { silent = true, desc = "Save file" })
 
--- Emacs buffer navigation
+-- Buffer navigation
 vim.keymap.set("n", "<C-x>j", "<cmd>bprevious<CR>", { silent = true, desc = "Previous buffer" })
 vim.keymap.set("n", "<C-x>l", "<cmd>bnext<CR>", { silent = true, desc = "Next buffer" })
 
--- Kill current buffer
-vim.keymap.set("n", "<C-x>k", function() Snacks.bufdelete() end, { desc = "Kill current buffer" })
+-- Window navigation (emacs)
+vim.keymap.set("n", "<C-x>0", "<cmd>close<CR>", { silent = true, desc = "Close window" })
+vim.keymap.set("n", "<C-x>1", "<cmd>only<CR>", { silent = true, desc = "Close other windows" })
+vim.keymap.set("n", "<C-x>2", "<cmd>split<CR>", { silent = true, desc = "Split window horizontally" })
+vim.keymap.set("n", "<C-x>3", "<cmd>vsplit<CR>", { silent = true, desc = "Split window vertically" })
+vim.keymap.set("n", "<C-x>o", "<C-w>w", { desc = "Other window" })
+vim.keymap.set("n", "<C-x>r", "<C-w>r", { desc = "Rotate windows" })
+vim.keymap.set("n", "<C-x>=", "<C-w>=", { desc = "Balance windows" })
+
+-- Scrolling
+vim.keymap.set("n", "<C-f>", "<C-d>", { desc = "Half page down" })
+vim.keymap.set("n", "<C-b>", "<C-u>", { desc = "Half page up" })
 
 -- Clear search highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
+
+-- Update keymap
+vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })

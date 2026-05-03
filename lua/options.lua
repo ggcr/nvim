@@ -3,7 +3,12 @@
 -- General
 vim.o.mouse = ""
 vim.o.cmdheight = 0
-vim.o.cursorline = true
+if vim.fn.has("nvim-0.12") == 1 then
+    pcall(function()
+        require("vim._core.ui2").enable()
+    end)
+end
+vim.o.cursorline = false
 vim.o.number = false
 vim.o.relativenumber = false
 vim.o.wrap = false
@@ -15,7 +20,7 @@ vim.o.scrolloff = 999
 vim.o.sidescrolloff = 0
 vim.o.sidescroll = 5
 
-vim.o.signcolumn = "yes"
+vim.o.signcolumn = "no"
 vim.o.inccommand = "split"
 vim.o.confirm = true
 vim.o.ignorecase = true
@@ -38,5 +43,4 @@ vim.opt.smartindent = false
 
 -- Completion menu
 vim.o.pumheight = 20
-
 
