@@ -1,15 +1,17 @@
 # Neovim Configuration
 
-Minimal [Neovim] setup powered by [vim.pack], the built-in LSP client,
-[fzf-lua], [mini.nvim], [blink.cmp], and a local transparent Solarized-style
-colorscheme named `solstice`.
+Minimal Neovim setup powered by vim.pack, the built-in LSP client,
+fzf-lua, mini.nvim, blink.cmp, and a local custom Solarized-style
+colorscheme
+
+<img width="2032" height="1161" alt="Screenshot 2026-05-03 at 18 10 24" src="https://github.com/user-attachments/assets/9d835c64-3fd4-450f-b58a-48d860f10241" />
 
 A fork of [`freddiehaddad/nvim`](https://github.com/freddiehaddad/nvim)
 
 ## Requirements
 
-- [Neovim] 0.12 or newer
-- A [Nerd Font] for icons
+- Neovim 0.12 or newer
+- A Nerd Font for icons
 
 ### External tools
 
@@ -37,7 +39,7 @@ nvim
 ```
 
 Plugins are declared in `init.lua` with `vim.pack.add`. The first launch
-installs them through [vim.pack]. Use `<leader>pu` to update plugins.
+installs them through vim.pack. Use `<leader>pu` to update plugins.
 
 ## Plugins
 
