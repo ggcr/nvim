@@ -80,7 +80,13 @@ vim.lsp.config("ty", {
     root_markers = { 'uv.lock' },
 })
 
+vim.lsp.config("ruff", {
+    root_markers = { 'uv.lock', 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+})
+
 vim.lsp.enable("ty")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("ruff")
 vim.lsp.enable("gopls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("jsonls")
@@ -167,12 +173,20 @@ require("blink.cmp").setup({
     appearance = { nerd_font_variant = "normal" },
     fuzzy = { implementation = "prefer_rust_with_warning" },
     completion = {
+        list = {
+            selection = {
+                preselect = true,
+                auto_insert = false,
+            },
+        },
         documentation = {
             auto_show = true,
+            auto_show_delay_ms = 750,
             window = { border = "single" },
         },
         ghost_text = { enabled = false },
         menu = {
+            auto_show_delay_ms = 120,
             border = "single",
             draw = {
                 components = {

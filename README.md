@@ -22,6 +22,7 @@ A fork of [`freddiehaddad/nvim`](https://github.com/freddiehaddad/nvim)
 | `ripgrep` | Live grep and project search | `brew install ripgrep` |
 | `tree-sitter` | Parser tooling | `brew install tree-sitter` |
 | `ty` | Python LSP | `uv tool install ty` |
+| `ruff` | Python linting and formatting | `uv tool install ruff` |
 | `gopls` | Go LSP | `go install golang.org/x/tools/gopls@latest` |
 | `clangd` | C/C++ LSP | `brew install llvm` |
 | `jsonls` | JSON LSP | `npm install -g vscode-langservers-extracted` |
@@ -194,4 +195,3 @@ Its palette and highlight groups live under `lua/solstice/`.
 ## Attribution
 
 Forked from the excellent minimal config by [`freddiehaddad/nvim`](https://github.com/freddiehaddad/nvim)
-
