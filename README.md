@@ -13,23 +13,6 @@ A fork of [`freddiehaddad/nvim`](https://github.com/freddiehaddad/nvim)
 - Neovim 0.12 or newer
 - A Nerd Font for icons
 
-### External tools
-
-| Tool | Purpose | Example install |
-| --- | --- | --- |
-| `git` | Plugin downloads and version control | `brew install git` |
-| `fzf` | Fuzzy finding through `fzf-lua` | `brew install fzf` |
-| `ripgrep` | Live grep and project search | `brew install ripgrep` |
-| `tree-sitter` | Parser tooling | `brew install tree-sitter` |
-| `ty` | Python LSP | `uv tool install ty` |
-| `ruff` | Python linting and formatting | `uv tool install ruff` |
-| `gopls` | Go LSP | `go install golang.org/x/tools/gopls@latest` |
-| `clangd` | C/C++ LSP | `brew install llvm` |
-| `jsonls` | JSON LSP | `npm install -g vscode-langservers-extracted` |
-| `lua_ls` | Lua LSP | `brew install lua-language-server` |
-| `marksman` | Markdown LSP | `brew install marksman` |
-| `rust_analyzer` | Rust LSP | `rustup component add rust-analyzer` |
-
 ## Quick start
 
 Clone into your Neovim config directory and launch:
