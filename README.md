@@ -4,8 +4,6 @@ Minimal Neovim setup powered by vim.pack, the built-in LSP client,
 fzf-lua, mini.nvim, blink.cmp, and a local custom Solarized-style
 colorscheme
 
-<img width="2032" height="1161" alt="Screenshot 2026-05-03 at 18 10 24" src="https://github.com/user-attachments/assets/9d835c64-3fd4-450f-b58a-48d860f10241" />
-
 A fork of [`freddiehaddad/nvim`](https://github.com/freddiehaddad/nvim)
 
 ## Requirements

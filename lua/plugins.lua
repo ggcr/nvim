@@ -236,7 +236,6 @@ require("fzf-lua").setup({
     winopts = {
         border = "single",
         preview = {
-            layout = "horizontal",
             horizontal = "right:50%",
             border = "single",
         },

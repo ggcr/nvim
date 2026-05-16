@@ -29,3 +29,29 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highl
 
 -- Update keymap
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
+
+-- Path of current buffer
+vim.keymap.set("n", "<leader>pwd", function()
+  local path = vim.api.nvim_buf_get_name(0)
+  vim.fn.setreg("+", path)
+  local buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, { path })
+  local win = vim.api.nvim_open_win(buf, false, {
+    relative = "editor",
+    anchor = "NE",
+    row = 0,
+    col = vim.o.columns,
+    width = #path,
+    height = 1,
+    style = "minimal",
+    border = "single",
+    focusable = false,
+  })
+  vim.defer_fn(function()
+    if vim.api.nvim_win_is_valid(win) then
+      vim.api.nvim_win_close(win, true)
+    end
+  end, 2000)
+end, { desc = "Copy path of current buffer" })
+
+
