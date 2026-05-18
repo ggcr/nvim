@@ -148,7 +148,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 -----------------------------------------------------------------------------
 -- Treesitter
 -----------------------------------------------------------------------------
-local treesitter_parsers = { "bash", "json", "go", "rust", "c", "cpp", "python" }
+local treesitter_parsers = { "bash", "json", "go", "rust", "c", "cpp", "python", "markdown", "markdown_inline", "html" }
 
 vim.treesitter.language.register("bash", { "sh" })
 
@@ -253,10 +253,8 @@ require("fzf-lua").setup({
 })
 
 vim.keymap.set("n", "<leader><space>", "<cmd>FzfLua buffers<CR>", { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fc", function() require("fzf-lua").files({ cwd = vim.fn.stdpath("config") }) end,
-    { desc = "Dotfiles" })
-vim.keymap.set("n", "<leader>fg", function() require("fzf-lua").files({ cwd = '~/.config/ghostty/' }) end,
-    { desc = "Ghostty" })
+vim.keymap.set("n", "<leader>fc", function() require("fzf-lua").files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Dotfiles" })
+vim.keymap.set("n", "<leader>fg", function() require("fzf-lua").files({ cwd = '~/.config/ghostty/' }) end, { desc = "Ghostty" })
 vim.keymap.set("n", "<leader>fd", "<cmd>FzfLua diagnostics_document<CR>", { desc = "Buffer diagnostics" })
 vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", { desc = "Find files" })
 vim.keymap.set("n", "<leader>fr", "<cmd>FzfLua resume<CR>", { desc = "Resume" })
@@ -264,7 +262,6 @@ vim.keymap.set("n", "<leader>a", "<cmd>FzfLua live_grep<CR>", { desc = "Grep" })
 vim.keymap.set("n", "<leader>hh", "<cmd>FzfLua helptags<CR>", { desc = "Help pages" })
 vim.keymap.set("n", "<leader>gs", "<cmd>FzfLua git_status<CR>", { desc = "Git status" })
 vim.keymap.set("n", "<leader>gb", "<cmd>FzfLua git_branches<CR>", { desc = "Git branches" })
-vim.keymap.set("n", "<leader>nh", "<cmd>Fidget history<CR>", { desc = "Notification history" })
 
 -----------------------------------------------------------------------------
 -- Notify
@@ -280,3 +277,21 @@ require("fidget").setup({
         },
     },
 })
+
+-----------------------------------------------------------------------------
+-- Render-markdown
+-----------------------------------------------------------------------------
+require("render-markdown").setup({
+    file_types = { "markdown" },
+    completions = { blink = { enabled = true } },
+    heading = { enabled = false },
+})
+
+-----------------------------------------------------------------------------
+-- Which-key
+-----------------------------------------------------------------------------
+require("which-key").setup({
+    preset = "helix",
+    win = { border = "single" },
+})
+

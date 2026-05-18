@@ -2,6 +2,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.shortmess:append("I")
+
 vim.pack.add {
     'https://github.com/freddiehaddad/ferric.nvim',
     'https://github.com/vague-theme/vague.nvim',
@@ -16,6 +18,8 @@ vim.pack.add {
     { src = "https://github.com/saghen/blink.cmp",                version = vim.version.range("1.x") },
     "https://github.com/mfussenegger/nvim-dap",
     { src = "https://github.com/igorlfs/nvim-dap-view", version = vim.version.range("1.x") },
+    "https://github.com/folke/which-key.nvim",
+    "https://github.com/MeanderingProgrammer/render-markdown.nvim",
 }
 
 require('plugins')
