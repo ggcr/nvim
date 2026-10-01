@@ -27,12 +27,16 @@ vim.keymap.set("n", "<C-b>", "<C-u>", { desc = "Half page up" })
 -- Clear search highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlights" })
 
+-- Toggle fold
+vim.keymap.set("n", "<Tab>", "za", { desc = "Toggle fold" })
+
 -- Update keymap
 vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
 
 -- Path of current buffer
 vim.keymap.set("n", "<leader>pwd", function()
   local path = vim.api.nvim_buf_get_name(0)
+  path = path:gsub("^oil://", "")
   vim.fn.setreg("+", path)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, { path })
