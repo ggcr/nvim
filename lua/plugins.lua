@@ -77,11 +77,15 @@ vim.diagnostic.config({
 })
 
 vim.lsp.config("ty", {
-    root_markers = { 'uv.lock' },
+    root_markers = { 'ty.toml', 'uv.lock', 'pyproject.toml', '.git' },
 })
 
 vim.lsp.config("ruff", {
     root_markers = { 'uv.lock', 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+    on_attach = function(client)
+        client.server_capabilities.hoverProvider = false
+        client.server_capabilities.codeActionProvider = false
+    end,
 })
 
 vim.lsp.enable("ty")
@@ -186,7 +190,7 @@ require("blink.cmp").setup({
         },
         ghost_text = { enabled = false },
         menu = {
-            auto_show_delay_ms = 120,
+            auto_show_delay_ms = 0,
             border = "single",
             draw = {
                 components = {
@@ -279,19 +283,9 @@ require("fidget").setup({
 })
 
 -----------------------------------------------------------------------------
--- Render-markdown
------------------------------------------------------------------------------
-require("render-markdown").setup({
-    file_types = { "markdown" },
-    completions = { blink = { enabled = true } },
-    heading = { enabled = false },
-})
-
------------------------------------------------------------------------------
 -- Which-key
 -----------------------------------------------------------------------------
 require("which-key").setup({
     preset = "helix",
     win = { border = "single" },
 })
-

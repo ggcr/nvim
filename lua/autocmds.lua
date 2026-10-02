@@ -18,6 +18,15 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+-- Hard wrap for markdown
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.textwidth = 80
+        vim.opt_local.formatoptions:append("t")
+    end,
+})
+
 -- Restore cursor position when reopening files
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function(e)

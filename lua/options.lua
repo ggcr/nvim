@@ -44,3 +44,9 @@ vim.opt.smartindent = false
 -- Completion menu
 vim.o.pumheight = 20
 
+-- Folding
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
+vim.o.foldtext = ""
+
