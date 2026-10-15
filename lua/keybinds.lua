@@ -20,6 +20,27 @@ vim.keymap.set("n", "<C-x>o", "<C-w>w", { desc = "Other window" })
 vim.keymap.set("n", "<C-x>r", "<C-w>r", { desc = "Rotate windows" })
 vim.keymap.set("n", "<C-x>=", "<C-w>=", { desc = "Balance windows" })
 
+-- Persistent scratch terminal
+local toggle_terminal = require("jamjar").make("scratch", {
+    winoptsfn = function()
+        return {
+            relative = "editor",
+            row = 0,
+            col = 0,
+            width = vim.o.columns,
+            height = math.max(1, vim.o.lines - vim.o.cmdheight - 1),
+            style = "minimal",
+            border = "none",
+        }
+    end,
+})
+vim.keymap.set({ "n", "t" }, "<C-x>t", function()
+    toggle_terminal()
+    if vim.bo.buftype == "terminal" then
+        vim.cmd.startinsert()
+    end
+end, { desc = "Toggle scratch terminal" })
+
 -- Scrolling
 vim.keymap.set("n", "<C-f>", "<C-d>", { desc = "Half page down" })
 vim.keymap.set("n", "<C-b>", "<C-u>", { desc = "Half page up" })
@@ -37,6 +58,7 @@ vim.keymap.set("n", "<leader>pu", vim.pack.update, { desc = "Update plugins" })
 vim.keymap.set("n", "<leader>pwd", function()
   local path = vim.api.nvim_buf_get_name(0)
   path = path:gsub("^oil://", "")
+  path = path:gsub("^/private", "")
   vim.fn.setreg("+", path)
   local buf = vim.api.nvim_create_buf(false, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, { path })
@@ -57,5 +79,3 @@ vim.keymap.set("n", "<leader>pwd", function()
     end
   end, 2000)
 end, { desc = "Copy path of current buffer" })
-
-

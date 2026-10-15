@@ -1,6 +1,7 @@
 -- lua/options.lua
 
 -- General
+vim.opt.exrc = true
 vim.o.mouse = ""
 vim.o.cmdheight = 0
 if vim.fn.has("nvim-0.12") == 1 then
@@ -49,4 +50,3 @@ vim.o.foldmethod = "expr"
 vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
 vim.o.foldtext = ""
-

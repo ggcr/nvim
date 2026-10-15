@@ -34,6 +34,7 @@ installs them through vim.pack. Use `<leader>pu` to update plugins.
 | [fidget.nvim] | Notifications |
 | [treesitter-modules.nvim] | Incremental selection |
 | [blink.cmp] | Completion |
+| [jamjar.nvim](https://codeberg.org/comfysage/jamjar.nvim) | Persistent scratch terminal |
 
 ## Key mappings
 
@@ -64,6 +65,7 @@ Leader is `<Space>`
 | `<C-x>o` | Move to other window |
 | `<C-x>r` | Rotate windows |
 | `<C-x>=` | Balance windows |
+| `<C-x>t` | Toggle scratch terminal (normal and terminal mode) |
 
 ### LSP
 

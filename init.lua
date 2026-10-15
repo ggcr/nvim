@@ -14,6 +14,7 @@ vim.pack.add {
     "https://github.com/MeanderingProgrammer/treesitter-modules.nvim",
     { src = "https://github.com/saghen/blink.cmp",                version = vim.version.range("1.x") },
     "https://github.com/folke/which-key.nvim",
+    "https://codeberg.org/comfysage/jamjar.nvim",
 }
 
 require('plugins')
